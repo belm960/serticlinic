@@ -1,0 +1,88 @@
+<section class="content">
+    <div class="container-fluid">
+      <div class="block-header">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumb breadcrumb-style ">
+              <li class="breadcrumb-item">
+                <h4 class="page-title">Invoice</h4>
+              </li>
+              <li class="breadcrumb-item bcrumb-1">
+                <a routerLink="/admin/dashboard/main">
+                  <i class="fas fa-home"></i> Home</a>
+              </li>
+              <li class="breadcrumb-item bcrumb-2">
+                <a href="#" onClick="return false;">Payment</a>
+              </li>
+              <li class="breadcrumb-item active">Invoice</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="card">
+            <div class="body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="white-box" id="printable">
+                    <h3>
+                      <b>RADIOLOGY ASSESSMENTS</b>
+                      <span class="pull-right">#{{patient.patient_ID}}</span>
+                    </h3>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="pull-left">
+                          <address>
+                            <img src="assets/images/invoice_logo.png" alt="logo" class="logo-default" />
+                            <p class="text-muted m-l-5">
+                              D 103, Cliniva Hospital, <br> Opp. Town Hall, <br>
+                              Sardar Patel Road, <br> Ahmedabad - 380015
+                            </p>
+                          </address>
+                        </div>
+                        <div class="pull-right text-right">
+                          <address>
+                            <p class="addr-font-h3 font-bold">Assessment TO :</p>
+                            <p class="font-bold addr-font-h4">{{patient.first}} {{patient.last}}</p>
+                            <p class="text-muted m-l-30">
+                              {{patient.address}}
+                            </p>
+                            <p class="m-t-30">
+                              <b>Report Date :</b> {{date1 | date: 'MM/dd/yyyy, HH:mm'}}
+                              <i class="fa fa-calendar"></i> 
+                            </p>
+                            <p>
+                              <b>Status :</b>
+                              <span class="label label-success">Success</span>
+                            </p>
+                          </address>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="card project_widget" *ngFor="let radiology1 of radiology">
+                          <div class="body" *ngIf="(radiology1.length!=0)">
+                          <div class="header bg-green" ><strong>Test: {{radiology1.examRequested}}</strong></div>
+                          <p ><strong>== Requested By: </strong> {{radiology1.requestedBy}}</p><hr>
+                          <p ><strong>== Report: </strong> {{radiology1.report}}</p><hr>
+                          <p ><strong>== Reported By: </strong> {{radiology1.reportedBy}}</p>
+                          <hr>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <button mat-raised-button color="accent" printSectionId="printable"
+                    ngxPrint class="btn btn-block">Print</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

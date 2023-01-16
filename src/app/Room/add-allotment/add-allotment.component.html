@@ -1,0 +1,134 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">New Allotment</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Room</a>
+            </li>
+            <li class="breadcrumb-item active">New Allotment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2><strong> New Allotment</strong></h2>
+
+          </div>
+          <div class="body">
+            <form class="m-4" (ngSubmit)="onSubmit1()">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <mat-form-field class="example-full-width mb-3">
+                    <mat-label>Patient Id</mat-label>
+                    <input matInput [(ngModel)]="roomForm.pid" [ngModelOptions]="{standalone: true}" required>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <button class="mr-3"  mat-raised-button color="primary">Search</button>
+                  <button type="button" mat-button>Cancel</button>
+                </div>
+              </div>
+            </form>
+            <div class="row clearfix" *ngIf="indicate">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                  <div class="header">
+                    <h2><strong>Patient</strong> Info</h2>
+                  </div>
+                  <div class="body">
+                    <div class="alert alert-success">
+                      <strong>Patient Name</strong> {{patient.first}}  {{patient.last}}
+                    </div>
+                    <div class="alert alert-info">
+                      <strong>patient Sex</strong> {{patient.gender}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form class="m-4" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <mat-form-field class="example-full-width mb-3">
+                    <mat-label>Patient Id</mat-label>
+                    <input matInput [(ngModel)]="roomForm.pid" [ngModelOptions]="{standalone: true}" required>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <mat-form-field class="example-full-width mb-3">
+                    <mat-label>Room No</mat-label>
+                    <input matInput [(ngModel)]="roomForm.roomNo" [ngModelOptions]="{standalone: true}" required>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <mat-form-field class="example-full-width mb-3">
+                    <mat-label>Room Type</mat-label>
+                    <mat-select [(ngModel)]="roomForm.roomType" [ngModelOptions]="{standalone: true}" required>
+                      <mat-option [value]="'1'">
+                        General
+                      </mat-option>
+                      <mat-option [value]="'2'">
+                        Delux
+                      </mat-option>
+                      <mat-option [value]="'3'">
+                        Super Delux
+                      </mat-option>
+                      <mat-option [value]="'4'">
+                        ICU
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+ 
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <mat-form-field class="example-full-width mb-3">
+                    <mat-label>Allotment Date</mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="roomForm.admitDate" [ngModelOptions]="{standalone: true}" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <mat-form-field class="example-full-width mb-3">
+                    <mat-label>Discharge Date</mat-label>
+                    <input matInput [matDatepicker]="picker1" [(ngModel)]="roomForm.dischargeDate" [ngModelOptions]="{standalone: true}" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <button class="mr-3"  mat-raised-button color="primary">Submit</button>
+                  <button type="button" mat-button>Cancel</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

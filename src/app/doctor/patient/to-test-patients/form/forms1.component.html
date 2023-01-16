@@ -1,0 +1,30 @@
+<div class="addContainer">
+  <div class="contact-details">
+    <div class="modalHeader">
+      <div class="editRowModal">
+        <div class="modalHeader clearfix">
+          <div class="modal-about contact-header">
+            <div class="contact-details-heading ml-4">
+              <div class="contact-details-name mb-2">The Radiology Tests You Have Sent!</div>
+              <div class="badge col-green">Radiology Test</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div mat-dialog-content>
+      <mat-card-content>
+        <div class="contact-details-field" matTooltip="Radiology Diagnosis" [matTooltipPosition]="'above'">
+          <i class="material-icons-two-tone color-icon">event_note</i>
+        <div class="contact-detail-info"> <strong>Radiology: </strong><span *ngFor="let radiology of radiology"><strong> {{radiology.examRequested}}, </strong><div *ngIf="radiology.length==0">No Laboratory Tests</div></span></div></div>
+
+          <div class="contact-details-field" matTooltip="Laboratory Diagnosis" [matTooltipPosition]="'above'">
+            <i class="material-icons-two-tone color-icon">event_note</i>
+            <div class="contact-detail-info"><strong>Laboratory: </strong> <span *ngFor="let laboratory of laboratory"> <strong>{{laboratory.test}}, </strong> <div *ngIf="laboratory.length==0">No Laboratory Tests</div></span></div></div>
+      </mat-card-content>
+    </div>
+  </div>
+</div>

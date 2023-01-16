@@ -1,0 +1,53 @@
+<div class="addContainer">
+  <div class="contact-details">
+    <div class="modalHeader">
+      <div class="editRowModal">
+        <div class="modalHeader clearfix">
+          <div class="modal-about contact-header">
+            <div class="contact-details-heading ml-4">
+              <div class="contact-details-name mb-2">{{radio.testtype}}</div>
+              <div class="badge col-green">Radiology Test</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div mat-dialog-content>
+      <mat-card-content>
+        <div class="contact-details-field" matTooltip="Test Date & TIme" [matTooltipPosition]="'above'">
+          <i class="material-icons-two-tone color-icon">event_note</i>
+      <div class="contact-detail-info"> {{radio.date}}
+          </div>
+        </div>
+        <div class="contact-details-field" matTooltip="Radiologist Name" [matTooltipPosition]="'above'">
+          <i class="material-icons-two-tone color-icon">face</i>
+          <div class="contact-detail-info"> {{radio.radiologistName}}
+          </div>
+        </div>
+        <div class="contact-details-field" matTooltip="About The Urgency" [matTooltipPosition]="'above'">
+          <i class="material-icons-two-tone color-icon">phonelink_ring</i>
+          <div class="contact-detail-info"> {{radio.urgency}}
+          </div>
+        </div>
+        <div class="contact-details-field" matTooltip="Relevant History" [matTooltipPosition]="'above'">
+          <i class="material-icons-two-tone color-icon">location_on</i>
+          <div class="contact-detail-info"> {{radio.relevantHistory}}
+          </div>
+        </div>
+        <div class="contact-details-field" matTooltip="Previous Exam" [matTooltipPosition]="'above'">
+          <i class="material-icons-two-tone color-icon">healing</i>
+          <div class="contact-detail-info"> {{radio.previousExam}}
+          </div>
+        </div>
+        <div class="contact-details-field" matTooltip="Other Information" [matTooltipPosition]="'above'">
+          <i class="material-icons-two-tone color-icon">healing</i>
+          <div class="contact-detail-info"> {{radio.otherinfo}}
+          </div>
+        </div>
+      </mat-card-content>
+    </div>
+  </div>
+</div>

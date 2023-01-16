@@ -1,0 +1,95 @@
+<div class="addContainer">
+    <div class="modalHeader">
+        <div class="editRowModal">
+            <div class="modalHeader clearfix">
+                <div class="modal-about">
+                </div>
+            </div>
+        </div>
+        <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div mat-dialog-content>      
+    <div class="row clearfix">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="card">
+            <div class="body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="white-box">
+                    <h3>
+                      <b>INVOICE</b>
+                      <span class="pull-right">#{{payments.vid}}</span>
+                    </h3>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="pull-left">
+                          <address>
+                            <img src="assets/images/invoice_logo.png" alt="logo" class="logo-default" />
+                            <p class="text-muted m-l-5">
+                              D 103, Cliniva Hospital, <br> Opp. Town Hall, <br>
+                              Sardar Patel Road, <br> Ahmedabad - 380015
+                            </p>
+                          </address>
+                        </div>
+                        <div class="pull-right text-right">
+                          <address>
+                            <p class="addr-font-h3 font-bold">BILL TO : {{payments.first}} {{payments.last}}</p>
+                            <p class="text-muted m-l-30">
+                              {{payments.address}}
+                            </p>
+                            <p class="m-t-30">
+                              <b>Invoice Date :</b>
+                              <i class="fa fa-calendar"></i>{{payments.date | date: 'dd/mm/yyyy'}}
+                            </p>
+                            <p>
+                              <b>Status :</b>
+                              <span class="label label-success">{{payments.status}}</span>
+                            </p>
+                          </address>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="table-responsive m-t-40">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th class="text-center">#</th>
+                                <th>Detail</th>
+                                <th class="text-right">Charges</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let payment of payment">
+                                <td class="text-center">{{payment.payment_id}}</td>
+                                <td>{{payment.title}}</td>
+                                <td class="text-right">${{payment.cost}}</td>         
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="pull-right m-t-30 text-right">
+                          <hr>
+                          <h3><b>Total :</b> ${{sum}}</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <div class="text-right">
+                          <button mat-flat-button color="primary" (click)="print()"><i class="fas fa-print"></i>
+                            Print</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

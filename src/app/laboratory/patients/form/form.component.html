@@ -1,0 +1,56 @@
+<div class="addContainer">
+  <div class="contact-details">
+    <div class="modalHeader">
+      <div class="editRowModal">
+        <div class="modalHeader clearfix">
+          <div class="modal-about contact-header">
+            <div class="contact-details-heading ml-4">
+              <div class="badge col-green">Laboratory Test</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div mat-dialog-content>
+      <mat-card-content>
+        <div class="header bg-green">
+          <h5>Assessments</h5>
+        </div>
+        <div class="body table-responsive"  *ngFor="let laboratory1 of laboratory">
+          <table class="table" *ngIf="(laboratory1.length!=0)" >
+            <thead>
+              <tr>
+                <th>TEST</th>
+                <th>RESULT</th>
+                <th>UNIT</th>
+                <th>REFERENCE</th>
+                <th>SPECIMENT TYPE</th>
+                <th>NAME OF VERIFIER</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{laboratory1.test}}</th>
+                <td>{{laboratory1.result}}</td>
+                <td>{{laboratory1.unit}}</td>
+                <td>{{laboratory1.reference}}</td>
+                <td>{{laboratory1.sst}}</td>
+                <td>{{laboratory1.nameOfVerifier}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="chat-upload">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+              <h6>Verified Date: {{laboratory1.verificationDate}}</h6>
+              <h6>Reported Time: {{laboratory1.reportedTime}}</h6>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-lg btn-block btn-success mb-4" (click)="print()">Print</button>
+      </mat-card-content>
+    </div>
+  </div>
+</div>

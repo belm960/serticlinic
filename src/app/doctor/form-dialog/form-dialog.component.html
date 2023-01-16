@@ -1,0 +1,115 @@
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="editRowModal">
+      <div class="modalHeader clearfix">
+        <div class="modal-about">
+          <div class="font-weight-bold p-t-5 p-l-10 font-17">
+            {{dialogTitle}}</div>
+        </div>
+      </div>
+    </div>
+    <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="visitForm" (ngSubmit)="submit">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-error *ngIf="visitForm.get('name').hasError('required')">
+              Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Doctor Name</mat-label>
+            <input matInput formControlName="doctorName" required>
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-error *ngIf="visitForm.get('doctorName').hasError('required')">
+              Doctor Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Visit Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="visitForm.get('date').hasError('required')">
+              Please select date
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Note Details</mat-label>
+            <textarea matInput formControlName="noteDetails" required></textarea>
+            <mat-error *ngIf="visitForm.get('noteDetails').hasError('required')">
+              Please write some notes!
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+            <div class="example-button-row">
+              <button mat-raised-button color="primary" [type]="submit" (click)="addNewRad()" *ngIf="!isNewEvent1">Add Radiology</button>
+              <button mat-raised-button color="primary" [type]="submit" (click)="closeNewRad()" *ngIf="isNewEvent1">Close Radiology</button>
+              <button mat-raised-button color="primary" (click)="addNewLab()" *ngIf="!isNewEvent" >Add Laboratory</button>
+              <button mat-raised-button color="primary" (click)="closeNewLab()" *ngIf="isNewEvent">Close Laboratory</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline" *ngIf="isNewEvent1">
+            <mat-label>Rad Diagnosis</mat-label>
+            <input matInput formControlName="radDiagnosis">
+            <mat-icon matSuffix>healing</mat-icon>
+            <mat-error *ngIf="visitForm.get('radDiagnosis').hasError('required')">
+              Rad Diagnosis is required. Or Write None.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline" *ngIf="isNewEvent">
+            <mat-label>Lab Diagnosis Note</mat-label>
+            <input matInput formControlName="labDiagnosis">
+            <mat-icon matSuffix>book</mat-icon>
+            <mat-error *ngIf="visitForm.get('labDiagnosis').hasError('required')">
+              Lab Diagnosis is required. or Write None
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="addRadiology()" *ngIf="isNewEvent1">Send Rad Test</button>
+            <button mat-raised-button color="warn" (click)="addLaboratory()" *ngIf="isNewEvent">Send Lab Test</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <div class="example-button-row">
+            <button mat-raised-button color="primary" [type]="submit" [disabled]="!visitForm.valid"
+              [mat-dialog-close]="1" (click)="confirmAdd()">Save</button>
+            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

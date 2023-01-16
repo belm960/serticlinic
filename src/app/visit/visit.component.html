@@ -1,0 +1,680 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Visit</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a href="#" onClick="return false;">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Patients</a>
+            </li>
+            <li class="breadcrumb-item active">Add Visit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card border-apply">
+          <div class="m-b-20">
+            <div class="contact-grid">
+              <div class="profile-header bg-green">
+                <div class="user-name">{{patient.first}} {{patient.last}}</div>
+                <div class="name-center">MRN: {{patient.patient_ID}}</div>
+              </div>
+              <img src="assets/images/user/usrbig5.jpg" class="user-img" alt="">
+              <p>
+                {{patient.email}}
+                <br />{{patient.dob}}
+                <br />{{patient.gender}}
+              </p>
+              <div>
+                <span class="phone">
+                  <i class="material-icons">phone</i>{{patient.mobile}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="col-lg-14 col-md-14 col-sm-14 col-xs-14">
+        <div class="alert alert-success">
+          <h4><strong>Patient's</strong> Last Visits</h4>
+        </div>
+        <mat-expansion-panel *ngFor="let visit of visit">
+          <mat-expansion-panel-header class="l-bg-green">
+            <mat-panel-title>
+              {{visit.id}}
+            </mat-panel-title>
+            <mat-panel-description>
+             <strong>Doctor:</strong> {{visit.doctorName}} -------------------- <strong>Date:</strong>  {{visit.date}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+            Visit body Is waiting for you!
+        </mat-expansion-panel>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="header l-bg-cyan">
+            <h2>
+              <strong>Add Visit</strong>
+            </h2>
+          </div>
+          <div class="body">
+            <mat-vertical-stepper #stepper>
+              <mat-step [stepControl]="ccForm">
+                <form [formGroup]="ccForm">
+                  <ng-template matStepLabel>Chief Complaint</ng-template>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Chief Complaint</mat-label>
+                    <textarea matInput formControlName="cc"></textarea>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>History of present illness</mat-label>
+                    <textarea matInput formControlName="hpi" ></textarea>
+                  </mat-form-field>
+
+                  <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="card">
+                        <div class="header">
+                          <h2>
+                            <strong>Past History</strong></h2>
+                  
+                        </div>
+                        <div class="body table-responsive">
+                          <table class="table table-condensed">
+                            <thead>
+                              <tr>
+                                <th>Illness</th>
+                                <th>Status</th>
+                                <th>Remark</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="l-bg-cyan">
+                                <td>Child hood ilness</td>
+                                <td>
+                                  <mat-radio-group formControlName="chi1">
+                                    <mat-radio-button  [value]="'Yes'">
+                                      Yes
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'No'">
+                                      No
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea matInput placeholder="" formControlName="chi2"></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-green">
+                                <td>Adult ilness</td>
+                                <td>
+                                  <mat-radio-group formControlName="adi1">
+                                    <mat-radio-button  [value]="'Yes'">
+                                      Yes
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'No'">
+                                      No
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea matInput placeholder="" formControlName="adi2"></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-orange">
+                                <td>Obsteric/Gynecologic illness</td>
+                                <td>
+                                  <mat-radio-group formControlName="obsteric1">
+                                    <mat-radio-button  [value]="'Yes'">
+                                      Yes
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'No'">
+                                      No
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea matInput placeholder="" formControlName="obsteric2"></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-purple">
+                                <td>Psychiatric illness</td>
+                                <td>
+                                  <mat-radio-group formControlName="psi1">
+                                    <mat-radio-button  [value]="'Yes'">
+                                      Yes
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'No'">
+                                      No
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea matInput placeholder="" formControlName="psi2"></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-red">
+                                <td>Other</td>
+                                <td>
+                                  <mat-radio-group formControlName="other1">
+                                    <mat-radio-button  [value]="'Yes'">
+                                      Yes
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'No'">
+                                      No
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea matInput placeholder="" formControlName="other2"></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--table 1-->
+
+                  <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="card">
+                        <div class="header">
+                          <h2>
+                            <strong>About Family</strong></h2>
+                  
+                        </div>
+                        <div class="body table-responsive">
+                          <table class="table table-condensed">
+                            <thead>
+                              <tr>
+                                <th>Family History</th>
+                                <th>Status</th>
+                                <th>Remark</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="l-bg-cyan">
+                                <td>Mother And Father</td>
+                                <td>
+                                  <mat-radio-group formControlName="maf1">
+                                    <mat-radio-button  [value]="'Normal'">
+                                      Normal
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'Abnormal'">
+                                      Abnormal
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea matInput formControlName="maf2" placeholder=""></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-green">
+                                <td>Siblings</td>
+                                <td>
+                                  <mat-radio-group formControlName="siblings1">
+                                    <mat-radio-button  [value]="'Normal'">
+                                      Normal
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'Abnormal'">
+                                      Abnormal
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea formControlName="siblings2" matInput placeholder=""></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-orange">
+                                <td>Other</td>
+                                <td>
+                                  <mat-radio-group formControlName="other3">
+                                    <mat-radio-button  [value]="'Normal'">
+                                      Normal
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'Abnormal'">
+                                      Abnormal
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea formControlName="other4" matInput placeholder=""></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <!--table 1 end-->
+
+
+                  <div>
+                    <button mat-raised-button matStepperNext color="primary" >Next</button>
+                  </div>
+                </form>
+              </mat-step>
+              <mat-step [stepControl]="physicalExamination">
+                <form [formGroup]="physicalExamination">
+                  <ng-template matStepLabel>Physical Examination</ng-template>
+                  
+<!--table 2-->
+                  <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="card">
+                        <div class="header">
+                          <h2>
+                            <strong>Genral Apperance</strong></h2>
+
+                        </div>
+                        <div class="body table-responsive">
+                          <table class="table table-condensed">
+                            <thead>
+                              <tr>
+                                <th>Systems</th>
+                                <th>Status</th>
+                                <th>Remark</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="l-bg-purple">
+                                <td>HEENT</td>
+                                <td>
+                                  <mat-radio-group formControlName="heent1">
+                                    <mat-radio-button  [value]="'Normal'">
+                                      Normal
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'Abnormal'">
+                                      Abnormal
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea formControlName="heent2" matInput placeholder=""></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-orange">
+                                <td>LNS</td>
+                                <td>
+                                  <mat-radio-group formControlName="lns1">
+                                    <mat-radio-button  [value]="'Normal'">
+                                      Normal
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'Abnormal'">
+                                      Abnormal
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea  formControlName="lns2"matInput placeholder=""></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-red">
+                                <td>CVS</td>
+                                <td>
+                                  <mat-radio-group formControlName="cvs1">
+                                    <mat-radio-button  [value]="'Normal'">
+                                      Normal
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'Abnormal'">
+                                      Abnormal
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea formControlName="cvs2" matInput placeholder=""></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-purple">
+                                <td>ABDOMEN</td>
+                                <td>
+                                  <mat-radio-group formControlName="abdomen1">
+                                    <mat-radio-button  [value]="'Normal'">
+                                      Normal
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'Abnormal'">
+                                      Abnormal
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea formControlName="abdomen2" matInput placeholder=""></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-green">
+                                <td>GUS</td>
+                                <td>
+                                  <mat-radio-group formControlName="gus1">
+                                    <mat-radio-button  [value]="'Normal'">
+                                      Normal
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'Abnormal'">
+                                      Abnormal
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea formControlName="gus2" matInput placeholder=""></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-cyan">
+                                <td>MSS</td>
+                                <td>
+                                  <mat-radio-group formControlName="mss1">
+                                    <mat-radio-button  [value]="'Normal'">
+                                      Normal
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'Abnormal'">
+                                      Abnormal
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea formControlName="mss2" matInput placeholder=""></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                              <tr class="l-bg-green">
+                                <td>CNS</td>
+                                <td>
+                                  <mat-radio-group formControlName="cns1">
+                                    <mat-radio-button  [value]="'Normal'">
+                                      Normal
+                                    </mat-radio-button>
+                                    <mat-radio-button  [value]="'Abnormal'">
+                                      Abnormal
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </td>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                    <mat-label></mat-label>
+                                    <textarea formControlName="cns2" matInput placeholder=""></textarea>
+                                  </mat-form-field>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                
+                  <!--table 2 end-->
+          <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="card">
+                <div class="header">
+                  <h2>
+                    <strong>Vital Signs</strong></h2>
+                </div> 
+                <div class="body">
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <mat-form-field class="example-half-width mb-3" appearance="outline">
+                      <mat-label>Blood Pressure</mat-label>
+                      <span matPrefix>
+                        <mat-icon class="mr-2">favorite</mat-icon>
+                      </span>
+                      <input formControlName="bp" matInput placeholder="EG:120/80mmHg"  mask="000/00" />
+                      <span matTextSuffix>mmHg</span>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <mat-form-field class="example-half-width mb-3" appearance="outline">
+                      <mat-label>Heart Rate</mat-label>
+                      <span matPrefix>
+                        <mat-icon class="mr-2">favorite</mat-icon>
+                      </span>
+                      <input formControlName="hr" matInput placeholder="beats per minute"  />
+                      <span matTextSuffix>bpm</span>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                  <mat-form-field class="example-half-width mb-3" appearance="outline">
+                    <mat-label>Breathing Rate</mat-label>
+                    <span matPrefix>
+                      <mat-icon class="mr-2">favorite</mat-icon>
+                    </span>
+                    <input formControlName="br" matInput placeholder="breath per minute" />
+                    <span matTextSuffix>bpm</span>
+                  </mat-form-field>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                  <mat-form-field class="example-half-width mb-3" appearance="outline">
+                    <mat-label>Temprature</mat-label>
+                    <span matPrefix>
+                      <mat-icon class="mr-2">favorite</mat-icon>
+                    </span>
+                    <input formControlName="temp" matInput placeholder="in degree centigrade" />
+                    <span matTextSuffix>'C</span>
+                  </mat-form-field>
+                  </div>
+                </div>
+              </div> 
+              </div>
+            </div>
+          </div>
+          <div>
+            <button mat-raised-button matStepperPrevious color="warn" class="mr-2">Back</button>
+            <button mat-raised-button matStepperNext color="primary" (click)="PostFirstVisit()">Next</button>
+          </div>
+                </form>
+              </mat-step>
+              <mat-step >
+                <form >
+                  <ng-template matStepLabel>Assessment</ng-template>
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mb-3">
+                      <div class="card">
+                        <div class="header">
+                          <h2>Laboratory Tests</h2>
+                        </div>
+                        <div class="body">
+                          <mat-accordion>
+                            <mat-expansion-panel *ngFor="let item of itemlab">
+                              <mat-expansion-panel-header class="l-bg-orange">
+                                <mat-panel-title>
+                                  {{item.name}}
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                  <span class="label l-bg-cyan shadow-style">Total: {{item.subItem.length}}</span>
+                                </mat-panel-description>
+                              </mat-expansion-panel-header>
+                              <div *ngFor="let subItem of item.subItem">
+                                <mat-checkbox [checked]="selection.isSelected(subItem)" (click)="clicked(subItem)">{{ subItem.name }}</mat-checkbox>
+                             </div>
+                            </mat-expansion-panel>
+                          </mat-accordion>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="card">
+                        <div class="header">
+                          <h2>Radiology Tests</h2>
+                        </div>
+                        <div class="body">
+                          <mat-accordion>
+                            <mat-expansion-panel *ngFor="let item of itemRadiology">
+                              <mat-expansion-panel-header class="l-bg-green">
+                                <mat-panel-title>
+                                  {{item.name}}
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                  <span class="label l-bg-purple shadow-style">Total: {{item.subItem.length}}</span>
+                                </mat-panel-description>
+                              </mat-expansion-panel-header>
+                              <div *ngFor="let subItem of item.subItem">
+                                <mat-checkbox [checked]="selection.isSelected(subItem)" (click)="clicked(subItem)">{{ subItem.name }}</mat-checkbox>
+                             </div>
+                            </mat-expansion-panel>
+                          </mat-accordion>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                      <div>
+                        <button mat-raised-button matStepperPrevious color="warn" class="mr-2">Back</button>
+                        <button mat-raised-button color="accent" (click)="submitAssessment()">Submit Assessment</button><hr>
+                        <p>if Don't want Assessment you can choose next. </p><button mat-raised-button color="primary" matStepperNext>Next</button>
+                      </div>
+                    </form>
+                  </mat-step>
+              <mat-step >
+                <form [formGroup]="iatForm">
+                  <ng-template matStepLabel>Investigation And Treatment</ng-template>
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Investigation</mat-label>
+                        <textarea formControlName="investigation" matInput placeholder="" required></textarea>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Dx</mat-label>
+                        <textarea formControlName="dx" matInput placeholder="" required></textarea>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Treatment</mat-label>
+                        <textarea formControlName="treatment" matInput placeholder="" required></textarea>
+                      </mat-form-field>
+                      <div>
+                        <button mat-raised-button matStepperPrevious color="warn" class="mr-2">Back</button>
+                        <button mat-raised-button matStepperNext color="primary" (click)="PostLastVisit()" >Next</button>
+                      </div>
+                    </form>
+                  </mat-step>
+                  <mat-step>
+                    <ng-template matStepLabel>Done</ng-template>
+                    <div class="row" *ngIf="!indicate1">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                        <div class="example-button-row">
+                          <button mat-raised-button class="btn btn-lg btn-block" color="primary" 
+                          (click)="addAppointment()" >Add Appointment</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="indicate1">
+                      <div class="card project_widget">
+                        <div class="header">
+                            <h5>Add Appointment</h5>
+                        </div>
+                      <div class="body">
+                        <form  ngForm="form"  >
+                            
+                            <div class="row">
+                              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                  <mat-label>Disease</mat-label>
+                                  <textarea matInput [(ngModel)]="appointment.disease"  [ngModelOptions]="{standalone: true}" required></textarea>
+                                </mat-form-field>
+                              </div>
+                            </div>
+        
+                            <div class="row">
+                              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                  <mat-label>Appointment Date</mat-label>
+                                  <input matInput [matDatepicker]="picker" [(ngModel)]="appointment.date"  [ngModelOptions]="{standalone: true}" required>
+                                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                  <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                              </div>
+                            </div>
+        
+                            <div class="row">
+                              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                <div class="example-button-row">
+                                  <button mat-raised-button class="mr-3" color="primary" 
+                                  (click)="submitAppointment()" >Save</button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" *ngIf="indicate1">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                        <div class="example-button-row">
+                          <button mat-raised-button class="btn btn-lg btn-block" color="primary" 
+                          (click)="closeAppointment()" >Close Appointment</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="row" *ngIf="!(patient.room=='yes')">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                          <div class="example-button-row">
+                            <button mat-raised-button class="btn btn-lg btn-block" color="primary" 
+                            (click)="addRoom()" >Add To Room</button>
+                          </div>
+                        </div>
+                      </div>
+                      <button mat-raised-button  class="btn btn-success btn-lg btn-block" (click)="Finish()">Finish</button>
+                    </div>
+              </mat-step>
+            </mat-vertical-stepper>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

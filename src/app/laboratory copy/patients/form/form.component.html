@@ -1,0 +1,37 @@
+<div class="addContainer">
+  <div class="contact-details">
+    <div class="modalHeader">
+      <div class="editRowModal">
+        <div class="modalHeader clearfix">
+          <div class="modal-about contact-header">
+            <div class="contact-details-heading ml-4">
+              <div class="contact-details-name mb-2">{{radiology.testtype}}</div>
+              <div class="badge col-green">Radiology Test</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div mat-dialog-content>
+      <mat-card-content>
+        
+        <div class="card project_widget" *ngFor="let radiology1 of radiology">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" *ngIf="(radiology1.length!=0)">
+          <div class="alert alert-success" >Test: {{radiology1.examRequested}} </div><hr>
+          <p ><strong>== Exam Requested: </strong> {{radiology1.examRequested}}</p><hr>
+          <p ><strong>== Exam Type Detail: </strong> {{radiology1.examTypeDetail}}</p><hr>
+          <p ><strong>== Clinical Data: </strong> {{radiology1.clinicalData}}</p><hr>
+          <p ><strong>== Requested By: </strong> {{radiology1.requestedBy}}</p><hr>
+          <p ><strong>== Report: </strong> {{radiology1.report}}</p><hr>
+          <p ><strong>== Reported By: </strong> {{radiology1.reportedBy}}</p>
+          <hr>
+          </div>
+        </div>
+        <button class="btn btn-lg btn-block btn-success mb-4" (click)="print()">Print</button>
+      </mat-card-content>
+    </div>
+  </div>
+</div>

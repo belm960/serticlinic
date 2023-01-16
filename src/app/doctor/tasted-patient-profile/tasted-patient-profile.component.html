@@ -1,0 +1,426 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Patient Profile</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Patient</a>
+            </li>
+            <li class="breadcrumb-item active">Profile</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-14 col-md-14 col-sm-14 col-xs-14">
+      <div class="card">
+        <div class="header bg-cyan">
+          <h2>
+            {{patient.first}} {{patient.last}}-----------------------------------------------MRN: {{patient.patient_ID}}
+            <small>Gender: {{patient.gender}}</small>
+          </h2>
+        </div>
+        <div class="body">
+          Email: {{patient.email}} <br>
+          Mobile: {{patient.mobile}}<br>
+          {{patient.address}}
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" aria-expanded="true">
+            <div class="row clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card project_widget">
+                  <div class="header bg-green">
+                    <h5>{{title}}</h5>
+                  </div>
+                  <div class="body">
+                    <p ><strong>Cheif Complaint: </strong> {{visit1.cc}}</p>
+                    <hr>
+                    <p ><strong>History Of Patient Illness: </strong>{{visit1.hpi}}</p>
+                    <hr>
+                    <div class=" header bg-purple" ><h5> Past History </h5></div>
+                    <p ><strong>== Childhood Illness: </strong> {{ph[0]}}</p><hr>
+                    <p ><strong>== Adult Illness: </strong> {{ph[1]}}</p><hr>
+                    <p ><strong>== Obsteric/Gynacologic Illness: </strong> {{ph[2]}}</p><hr>
+                    <p ><strong>== Psychatric Illness: </strong> {{ph[3]}}</p><hr>
+                    <p ><strong>== Other: </strong> {{ph[4]}}</p>
+                    <hr>
+                    <div class=" header bg-purple" ><h5> Family History </h5></div>
+                    <p ><strong>== Mother and Father: </strong> {{fam[0]}}</p><hr>
+                    <p ><strong>== Siblings: </strong> {{fam[1]}}</p><hr>
+                    <p ><strong>== Other: </strong> {{fam[2]}}</p>
+                    <hr>
+                    <div class=" header bg-purple" ><h5> General Apperance </h5></div>
+                    <p ><strong>== HEENT: </strong> {{visit1.heent}}</p><hr>
+                    <p ><strong>== LNS: </strong> {{visit1.lns}}</p><hr>
+                    <p ><strong>== CVS: </strong> {{visit1.cvs}}</p><hr>
+                    <p ><strong>== ABDOMEN: </strong> {{visit1.abdomen}}</p><hr>
+                    <p ><strong>== GUS: </strong> {{visit1.gus}}</p><hr>
+                    <p ><strong>== MSS: </strong> {{visit1.mss}}</p><hr>
+                    <p ><strong>== CNS: </strong> {{visit1.cns}}</p>
+                    <hr>
+                    <div class="header bg-cyan" ><strong>Vital Signs: </strong></div>
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="card card-statistic-2">
+                          <div class="clearfix">
+                            <div class="card-icon-only shadow-primary float-left">
+                              <img src="assets/images/pages/blood-pressure.png" alt="">
+                            </div>
+                            <div class="float-right m-4">
+                              <div>
+                                <h5 class="pull-right">Blood Pressure</h5>
+                              </div>
+                              <div class="col-green">
+                                <h3 class="font-weight-bold pull-right mb-0">{{visit1.bp}}</h3>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-content ml-4 mb-3">
+                            <p class="m-b-0 d-flex"><i class="material-icons col-green pr-2">trending_up</i> 10% Higher Then Last Month
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="card card-statistic-2">
+                          <div class="clearfix">
+                            <div class="card-icon-only shadow-primary float-left">
+                              <img src="assets/images/pages/heart-rate.png" alt="">
+                            </div>
+                            <div class="float-right m-4">
+                              <div>
+                                <h5 class="pull-right">Heart beat</h5>
+                              </div>
+                              <div class="col-green">
+                                <h3 class="font-weight-bold pull-right mb-0">{{visit1.pr}}</h3>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-content ml-4 mb-3">
+                            <p class="m-b-0 d-flex"><i class="material-icons col-green pr-2">trending_up</i> 10% Higher Then Last Month
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="card card-statistic-2">
+                          <div class="clearfix">
+                            <div class="card-icon-only shadow-primary float-left">
+                              <img src="assets/images/pages/glucose.png" alt="">
+                            </div>
+                            <div class="float-right m-4">
+                              <div>
+                                <h5 class="pull-right">Breathing Rate</h5>
+                              </div>
+                              <div class="col-green">
+                                <h3 class="font-weight-bold pull-right mb-0">{{visit1.rr}}</h3>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-content ml-4 mb-3">
+                            <p class="m-b-0 d-flex"><i class="material-icons col-green pr-2">trending_up</i> 12% Higher Then Last Month
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="card card-statistic-2">
+                          <div class="clearfix">
+                            <div class="card-icon-only shadow-primary float-left">
+                              <img src="assets/images/pages/blood-count.png" alt="">
+                            </div>
+                            <div class="float-right m-4">
+                              <div>
+                                <h5 class="pull-right">Temperature</h5>
+                              </div>
+                              <div class="col-green">
+                                <h3 class="font-weight-bold pull-right mb-0">{{visit1.temp}}</h3>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-content ml-4 mb-3">
+                            <p class="m-b-0 d-flex"><i class="material-icons col-orange pr-2">trending_down</i> 22% Less Then Last Month
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="header bg-purple" ><strong>Info</strong></div>
+                    <p ><strong>== Doctor Name: </strong>{{visit1.doctorName}}</p>
+                    <hr>
+                    <p ><strong>== Date: </strong>{{visit1.date}}</p>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12" >
+                <div class="card project_widget">
+                  <div class="header bg-green">
+                    <h5>Assessments</h5>
+                  </div>
+                  <div class="body table-responsive"  *ngFor="let laboratory1 of laboratory1">
+                    <table class="table" *ngIf="(laboratory1.length!=0)" >
+                      <thead>
+                        <tr>
+                          <th>TEST</th>
+                          <th>RESULT</th>
+                          <th>UNIT</th>
+                          <th>REFERENCE</th>
+                          <th>SPECIMENT TYPE</th>
+                          <th>NAME OF VERIFIER</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">{{laboratory1.test}}</th>
+                          <td>{{laboratory1.result}}</td>
+                          <td>{{laboratory1.unit}}</td>
+                          <td>{{laboratory1.reference}}</td>
+                          <td>{{laboratory1.sst}}</td>
+                          <td>{{laboratory1.nameOfVerifier}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="chat-upload">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                        <h6>Verified Date: {{laboratory1.verificationDate}}</h6>
+                        <h6>Reported Time: {{laboratory1.reportedTime}}</h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card project_widget" *ngFor="let radiology1 of radiology1">
+                    <div class="body" *ngIf="(radiology1.length!=0)&&isRad">
+                    <div class="alert alert-success" >Test: {{radiology1.examRequested}} </div><hr>
+                    <p ><strong>== Exam Requested: </strong> {{radiology1.examRequested}}</p><hr>
+                    <p ><strong>== Exam Type Detail: </strong> {{radiology1.examTypeDetail}}</p><hr>
+                    <p ><strong>== Clinical Data: </strong> {{radiology1.clinicalData}}</p><hr>
+                    <p ><strong>== Requested By: </strong> {{radiology1.requestedBy}}</p><hr>
+                    <p ><strong>== Report: </strong> {{radiology1.report}}</p><hr>
+                    <p ><strong>== Reported By: </strong> {{radiology1.reportedBy}}</p>
+                    <hr>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="visit1.finished">
+                <div class="card project_widget">
+                  <div class="header">
+                    <h5>General Info About The Disease</h5>
+                  </div>
+                  <div class="body">
+                    <strong class="text-muted" >Investigation: </strong>
+                    <p >{{visit1.investigation}}</p>
+                    <hr>
+                    <strong class="text-muted" >Dx: </strong>
+                    <p >{{visit1.dx}}</p>
+                    <hr>
+                    <strong class="text-muted" >Treatment: </strong>
+                    <p >{{visit1.treatment}}</p>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="!(visit1.finished)">
+              <div class="card project_widget">
+                <div class="header">
+                    <h5>Generalize please?</h5>
+                </div>
+              <div class="body">
+                <form  [formGroup]="iatForm">
+                    <div class="row">
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Investigation</mat-label>
+                          <input matInput formControlName="investigation" required>
+                          <mat-icon matSuffix>face</mat-icon>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Dx</mat-label>
+                          <input matInput formControlName="dx" required>
+                          <mat-icon matSuffix>face</mat-icon>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Treatment</mat-label>
+                          <textarea matInput formControlName="treatment" required></textarea>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                        <div class="example-button-row">
+                          <button mat-raised-button class="mr-3" color="primary" 
+                          (click)="postLastVisit()" >Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-12 col-md-12 col-sm-12" >
+              <div class="card project_widget">
+                <div class="row" *ngIf="!indicate1&&!finished">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <div class="example-button-row">
+                      <button mat-raised-button class="btn btn-lg btn-block" color="primary" 
+                      (click)="addAppointment()" >Add Appointment</button>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="row" *ngIf="!room&&!indicate1">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                      <div class="example-button-row">
+                        <button mat-raised-button class="btn btn-lg btn-block" color="primary" 
+                        (click)="addRoom()" >Add To Room</button>
+                      </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="!indicate1">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <div class="example-button-row">
+                      <button mat-raised-button class="btn btn-lg btn-block btn-outline-success" 
+                      (click)="finish()" >Finish</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" *ngIf="indicate1&&!finished">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <div class="example-button-row">
+                      <button mat-raised-button class="btn btn-lg btn-block" color="primary" 
+                      (click)="closeAppointment()" >Close Appointment</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" *ngIf="!room&&indicate1">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <div class="example-button-row">
+                      <button mat-raised-button class="btn btn-lg btn-block" color="primary" 
+                      (click)="addRoom()" >Add To Room</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" *ngIf="indicate1">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <div class="example-button-row">
+                      <button mat-raised-button class="btn btn-lg btn-block btn-outline-success" color="warn" 
+                      (click)="finish()" >Finish</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="indicate1&&!finished">
+              <div class="card project_widget">
+                <div class="header">
+                    <h5>Add Appointment</h5>
+                </div>
+              <div class="body">
+                <form  ngForm="form"  >
+                    
+                    <div class="row">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Disease</mat-label>
+                          <textarea matInput [(ngModel)]="appointment.disease"  [ngModelOptions]="{standalone: true}" required></textarea>
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Appointment Date</mat-label>
+                          <input matInput [matDatepicker]="picker" [(ngModel)]="appointment.date"  [ngModelOptions]="{standalone: true}" required>
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                        <div class="example-button-row">
+                          <button mat-raised-button class="mr-3" color="primary" 
+                          (click)="submitAppointment()" >Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="finished">
+              <div class="card project_widget">
+                <div class="header">
+                  <h5>General Info About The Appointment</h5>
+                </div>
+                <div class="body">
+                  <small class="text-muted" >Disease: </small>
+                  <p >{{appointment.disease}}</p>
+                  <hr>
+                  <small class="text-muted" >Patients Appointment Date: </small>
+                  <p >{{appointment.date}}</p>
+                  <hr>
+                </div>
+              </div>
+            </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card project_widget">
+                  <div class="header">
+                      <h5 class="header-title">Past Visit History</h5>
+                  </div>
+                  <div class="body">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Doctor</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let visit of visit" >
+                            <td>{{visit.date}}</td>
+                            <td>{{visit.doctorName}}</td>
+                            <td>
+                              <button type="button" class="btn btn-outline-info" (click)="getVistInfo(visit)" >Info</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

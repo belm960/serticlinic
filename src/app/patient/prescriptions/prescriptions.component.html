@@ -1,0 +1,207 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Records</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/patient/dashboard">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item active">Your Records</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="header">
+            <h2>{{title}}</h2>
+
+          </div>
+          <div class="body">
+            <mat-tab-group>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon mr-2">thumb_up</mat-icon>
+                  Visit Info
+                </ng-template>
+                <div class="alert alert-warning" *ngIf="!visitFound">You Have No Visit</div>
+                <div *ngIf="visitFound">
+                <div class="alert alert-success">General Information</div>
+                  <br>
+                <b>Cheif Complaint</b>
+                <p>
+                  {{visit1.dx}}
+                </p>
+                <b>History of Patient Illness</b>
+                <p>
+                  {{visit1.hpi}}
+                </p>
+                <div class="alert alert-success">General Apperance</div>
+                <b>HEENT</b>
+                <p>
+                  {{visit1.heent}}
+                </p>
+                <b>CVS</b>
+                <p>
+                  {{visit1.cvs}}
+                </p>
+                <b>CNS</b>
+                <p>
+                  {{visit1.cns}}
+                </p>
+                <b>GUS</b>
+                <p>
+                  {{visit1.gus}}
+                </p>
+                <b>MSS</b>
+                <p>
+                  {{visit1.mss}}
+                </p>
+                <b>Abdomen</b>
+                <p>
+                  {{visit1.abdomen}}
+                </p>
+                <div class="alert alert-success">Disease and Treatment</div>
+                <b>DX: </b>
+                <p>
+                  {{visit1.dx}}
+                </p>
+                <b>Investigation: </b>
+                <p>
+                  {{visit1.investigation}}
+                </p>
+                <b>Treatment: </b>
+                <p>
+                  {{visit1.treatment}}
+                </p>
+                <div class="alert alert-success">Meta Data</div>
+                <b>Dr. Name</b>
+                <p>
+                  {{visit1.doctorName}}
+                </p>
+                <b>Visit Date</b>
+                <p>
+                  {{visit1.date}}
+                </p>
+                </div>
+                
+              </mat-tab>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon mr-2">thumb_up</mat-icon>
+                  Radiology Test
+                </ng-template>
+                <div class="alert alert-warning" #noRadiology>There is no Radiology For This Visit</div>
+                <div class="card project_widget" *ngFor="let radiology1 of radiology1">
+                  <div class="body" *ngIf="(radiology1.length!=0)">
+                  <div class="alert alert-success" >Test: {{radiology1.examRequested}} </div><hr>
+                  <p ><strong>== Exam Requested: </strong> {{radiology1.examRequested}}</p><hr>
+                  <p ><strong>== Requested By: </strong> {{radiology1.requestedBy}}</p><hr>
+                  <p ><strong>== Report: </strong> {{radiology1.report}}</p><hr>
+                  <p ><strong>== Reported By: </strong> {{radiology1.reportedBy}}</p>
+                  <hr>
+                  <ng-container *ngIf="!radiology1.length" [ngTemplateOutlet]="noRadiology"></ng-container>
+                  </div>
+                </div>
+              </mat-tab>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon mr-2">thumb_up</mat-icon>
+                  Laboratory Test
+                </ng-template>
+                <div class="alert alert-warning" #noLaboratory>There is no Laboratory For This Visit</div>
+                <div class="body table-responsive"  *ngFor="let laboratory1 of laboratory1">
+                  <table class="table" *ngIf="(laboratory1.length!=0)" >
+                    <thead>
+                      <tr>
+                        <th>TEST</th>
+                        <th>RESULT</th>
+                        <th>UNIT</th>
+                        <th>REFERENCE</th>
+                        <th>SPECIMENT TYPE</th>
+                        <th>NAME OF VERIFIER</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{laboratory1.test}}</th>
+                        <td>{{laboratory1.result}}</td>
+                        <td>{{laboratory1.unit}}</td>
+                        <td>{{laboratory1.reference}}</td>
+                        <td>{{laboratory1.sst}}</td>
+                        <td>{{laboratory1.nameOfVerifier}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="chat-upload">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                      <h6>Verified Date: {{laboratory1.verificationDate}}</h6>
+                      <h6>Reported Time: {{laboratory1.reportedTime}}</h6>
+                    </div>
+                  </div>
+                  <ng-container *ngIf="!laboratory1.length" [ngTemplateOutlet]="noLaboratory"></ng-container>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="header">
+            <h2>Your Records</h2>
+
+          </div>
+          <div class="body">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-hover ">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Title</th>
+                      <th>Created by</th>
+                      <th>Date</th>
+                      <th>Diseases</th>
+                      <th>Actions </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <div *ngFor="let visit of visit">
+                    <tr *ngIf="visit.length!=0">
+                      <td># {{visit.id}}</td>
+                      <td>{{visit.name}}</td>
+                      <td><a href="mailto:test@gmail.com">{{visit.doctorName}}</a></td>
+                      <td>{{visit.date}}</td>
+                      <td>
+                        <div class="badge col-red">{{visit.disease}}</div>
+                      </td>
+                      <td>
+                        <button mat-icon-button>
+                          <mat-icon class="col-green" (click)="display(visit.id)">visibility</mat-icon>
+                        </button>
+                      </td>
+                      <ng-container *ngIf="!visit.length" [ngTemplateOutlet]="noItems"></ng-container>
+                    </tr>
+                  </div>
+                  </tbody>
+                </table>
+                <div class="alert alert-danger" #noItems>
+                      There is No past Visit
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

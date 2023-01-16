@@ -1,0 +1,111 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Radiology</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a href="#" onClick="return false;">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Apps</a>
+            </li>
+            <li class="breadcrumb-item active">Chat</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-14 col-md-14 col-sm-14 col-xs-14">
+      <div class="card">
+        <div class="header bg-cyan">
+          <h2>
+            {{patient.first}} {{patient.last}}-----------------------------------------------MRN: {{patient.patient_ID}}
+            <small>Gender: {{patient.gender}}</small>
+          </h2>
+        </div>
+        <div class="body">
+          Email: {{patient.email}} <br>
+          Mobile: {{patient.mobile}}<br>
+          {{patient.address}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div class="card">
+          <div class="body">
+            <div id="plist" class="people-list">
+              <div class="form-line m-b-15">
+                <h5 matBadge="radiology.length" matBadgeOverlap="false">Ordered Tests</h5>
+              </div>
+              <div class="tab-content">
+                <div id="chat_user" style="position: relative; max-height: 590px;" [perfectScrollbar] >
+                  <ul class="chat-list list-unstyled m-b-0" >
+                    <li class="clearfix" *ngFor="let radiology of radiology; last as islast" (click)="getRadiologyOne(radiology,islast)">
+                      <div class="about">
+                        <div class="name">{{radiology.examRequested}}</div>
+                        <div class="status">
+                          <i class="material-icons offline">fiber_manual_record</i>
+                          By: {{radiology.requestedBy}} </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+        <div class="card">
+          <div class="chat">
+            <div class="chat-header clearfix" *ngIf="sign">
+              <img src="assets/images/user/user2.jpg" alt="avatar">
+              <div class="chat-about" >
+                <div class="chat-with">{{radiology1.examRequested}}</div>
+                <div class="chat-num-messages">By: {{radiology1.requestedBy}}</div>
+              </div>
+            </div>
+            <div class="chat-history" id="chat-conversation" style="position: relative; max-height: 449px;"
+              [perfectScrollbar]>
+              <form class="register-form m-4" [formGroup]="radForm" (ngSubmit)="onSubmit()" *ngIf="!(radiology1.finished)&&sign">
+                <div class="row">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Report</mat-label>
+                      <textarea matInput formControlName="report" required></textarea>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="radForm.get('report').hasError('required')">
+                        Report is required
+                      </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="chat-upload">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <button class="mr-3" mat-raised-button color="primary" [disabled]="!radForm.valid">Submit</button>
+                    <button class="mr-3" mat-raised-button color="primary" [disabled]="!last" (click)="finish()">Finish</button>
+                    <button type="button" mat-button>Cancel</button>
+                  </div>
+                </div>
+              </form>
+              <div class="body table-responsive" *ngIf="radiology1.finished">
+                <div class="alert alert-success"><strong>Report: </strong></div>
+                <p>{{radiology1.report}}</p>
+                <div class="chat-upload">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <h6>Verified Date: {{radiology1.date}}</h6>
+                    <h6>Reported By: {{radiology1.reportedBy}}</h6>
+                    <button class="mr-3" mat-raised-button color="primary" [disabled]="!last" (click)="finish()">Finish</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

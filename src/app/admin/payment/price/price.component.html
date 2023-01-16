@@ -1,0 +1,99 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Price</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Payment</a>
+            </li>
+            <li class="breadcrumb-item active">Set Price</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="white-box">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div><strong>Radiology Tests Price</strong></div>
+                      <div class="table-responsive m-t-40">
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th class="text-center">#</th>
+                              <th>Detail</th>
+                              <th class="text-right">Unit Cost</th>
+                              <th class="text-right">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let radPrice of radPrice">
+                              <td class="text-center">{{radPrice.id}}</td>
+                              <td>{{radPrice.name}}</td>
+                              <td class="text-right">{{radPrice.price}}</td>
+                              <td class="text-right">
+                                <button mat-raised-button color="primary" (click)="updaterad(radPrice.id)">UPDATE</button>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="white-box">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div><strong>Laboratory Tests Price</strong></div>
+                      <div class="table-responsive m-t-40">
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th class="text-center">#</th>
+                              <th>Detail</th>
+                              <th class="text-right">Unit Cost</th>
+                              <th class="text-right">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let labPrice of labPrice">
+                              <td class="text-center">{{labPrice.id}}</td>
+                              <td>{{labPrice.name}}</td>
+                              <td class="text-right">{{labPrice.price}}</td>
+                              <td class="text-right">
+                                <button mat-raised-button color="primary" (click)="updatelab(labPrice.id)">UPDATE</button>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

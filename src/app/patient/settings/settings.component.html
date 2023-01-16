@@ -1,0 +1,86 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Settings</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/patient/dashboard">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item active">Settings</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="body">
+              <div class="row align-items-center">
+                <div class="col-md-4">
+                  <img src="assets/images/pages/welcome.png" alt="" class="w-100">
+                </div>
+                <div class="col-md-8">
+                  <h4 class="font-20 weight-500 mb-2">Full Name:<div class="weight-600 font-30 col-blue pt-1"> {{patient.first}} 
+                      {{patient.last}}
+                    </div>
+                     MRN: <div class="weight-600 font-30 col-blue pt-1">
+                      {{patient.patient_ID}}
+                    </div>
+                  </h4>
+                  <div class="demo-google-material-icon">
+                    <i class="material-icons">person</i>
+                    <span class="icon-name">Date of Birth: {{patient.dob}}</span>
+                  </div>
+                  <div class="demo-google-material-icon">
+                    <i class="material-icons">my_location</i>
+                    <span class="icon-name"> Address: {{patient.address}}</span>
+                  </div>
+                  <div class="demo-google-material-icon">
+                    <i class="material-icons">settings_phone</i>
+                    <span class="icon-name">  {{patient.mobile}}</span>
+                  </div>
+                  <div class="demo-google-material-icon">
+                    <i class="material-icons">email</i>
+                    <span class="icon-name">  {{patient.email}}</span>
+                  </div>
+                  <div class="demo-google-material-icon">
+                    <i class="material-icons">person</i>
+                    <span class="icon-name">  Last Visit: {{visit1.date}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="card">
+      <div class="header">
+        <h2>
+          <strong>Security</strong> Settings</h2>
+      </div>
+      <div class="body">
+        <div class="example-container">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder={{patient}}>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Current Password</mat-label>
+            <input matInput type="password">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>New Password</mat-label>
+            <input matInput type="password">
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary">Save</button>
+      </div>
+    </div>
+  </div>
+</section>

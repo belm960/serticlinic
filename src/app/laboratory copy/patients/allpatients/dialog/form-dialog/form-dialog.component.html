@@ -1,0 +1,113 @@
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="editRowModal">
+      <div class="modalHeader clearfix">
+        <div class="modal-about">
+          <div class="font-weight-bold p-t-5 p-l-10 font-17">
+            Radiology Test</div>
+        </div>
+      </div>
+    </div>
+    <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <div class="font-weight-bold p-t-5 p-l-10 font-17">
+      {{visit.radDiagnosis}}</div>
+    <form class="register-form m-4" [formGroup]="radiologyForm" (ngSubmit)="submit">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Last Dose</mat-label>
+            <input matInput formControlName="lastdose">
+            <mat-icon matSuffix>test</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Radiologist Name</mat-label>
+            <input matInput formControlName="radiologistName" required>
+            <mat-icon matSuffix>face</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>hematology</mat-label>
+            <input matInput formControlName="hematology" required>
+            <mat-icon matSuffix>kidney</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <div class="m-b-20">
+            <mat-label class="mr-3">Test Type:</mat-label>
+            <mat-radio-group aria-label="Select Test Type" formControlName="testtype" required>
+              <mat-radio-button value="Blood">Blood</mat-radio-button>
+              <mat-radio-button value="Stool">Stool</mat-radio-button>
+              <mat-radio-button value="Urine">Urine</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Drug Therapy</mat-label>
+            <textarea matInput formControlName="drugtherapy"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Test date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width " appearance="outline">
+            <mat-label>Urgency</mat-label>
+            <mat-select formControlName="urgency" required>
+              <mat-option [value]="'fast'">
+                fast
+              </mat-option>
+              <mat-option [value]="'moderate'">
+                moderate
+              </mat-option>
+              <mat-option [value]="'normal'">
+                normal
+              </mat-option>
+              <mat-option [value]="'slow'">
+                slow
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Other Information</mat-label>
+            <input matInput formControlName="otherinfo">
+            <mat-icon matSuffix>healing</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <div class="example-button-row">
+            <button mat-raised-button color="primary" [type]="submit" [disabled]="!radiologyForm.valid"
+              [mat-dialog-close]="1"  *ngIf="thing" (click)="onSubmit()">Save</button>
+            <button mat-raised-button color="primary" [type]="submit" [disabled]="!radiologyForm.valid"
+            [mat-dialog-close]="1" *ngIf="!thing" (click)="submit()">Save</button>
+            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

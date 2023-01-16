@@ -1,0 +1,122 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Patient Profile</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Patient</a>
+            </li>
+            <li class="breadcrumb-item active">Profile</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-lg-4 col-md-12">
+        <div class="card">
+          <div class="contact-grid profile-image">
+            <img src="assets/images/user/usrbig4.jpg" alt="">
+          </div>
+        </div>
+        <div class="card">
+          <div class="header">
+            <h2>About Patient</h2>
+          </div>
+          <div class="tab-pane body active" id="about">
+            <small class="text-muted" >First Name: </small>
+            <p >{{patient.first}}</p>
+            <hr>
+            <small class="text-muted">Phone: </small>
+            <p>{{patient.mobile}}</p>
+            <hr>
+            <small class="text-muted">Email: </small>
+            <p>{{patient.email}}</p>
+            <hr>
+            <small class="text-muted">Gender: </small>
+            <p>{{patient.gender}}</p>
+            <hr>
+            <small class="text-muted">Date of Birth: </small>
+            <p>{{patient.dob}}</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" aria-expanded="true">
+            <div class="row clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card project_widget">
+                  <div class="header">
+                    <h5>About</h5>
+                  </div>
+                  <div class="body">
+                    <p>It is also used to identify any abnormal tissue in the uterine cavity, such
+                      as uterine fibroids, endometrial polyps, scar tissue, or retained pregnancy
+                      tissue, the presence of which may be suggested by history or previous tests
+                      such as a hysterosalpingogram (x-ray of the uterus and tubes). This
+                      procedure is done in the office here at IVF New England, and is done by one
+                      of the physicians.</p>
+                    <p>Approximately an hour before the exam we suggest that you take Ibuprofen 600
+                      mg (Motrin/Advil) or a similar medication to minimize some mild to moderate
+                      cramping that you may experience during the procedure.</p>
+                    <br>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card project_widget">
+                  <div class="header">
+                      <h5 class="header-title">Past Visit History</h5>
+                      <div style="width: 60%;"></div>
+                      <div class="header-close m-r-0">
+                        <button mat-mini-fab color="primary" (click)="addNew()">
+                          <mat-icon class="col-white">add</mat-icon> 
+                        </button><span>  <b>Add New Visit</b></span>
+                      </div>
+                  </div>
+                  
+                  <div class="body">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Visit Name</th>
+                            <th>Doctor</th>
+                            <th>Note</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let visit of visit; index as i; first as isFirst">
+                            <td>{{visit.date}}</td>
+                            <td>{{visit.name}}</td>
+                            <td>{{visit.doctorName}}</td>
+                            <td>{{visit.noteDetails}}</td>
+                            <td>
+                              <button type="button" class="btn btn-outline-info" (click)="goToLink('#/doctor/history')" 
+                              (click)="watch(visit.id,visit.radDiagnosis,visit.labDiagnosis)">Info</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

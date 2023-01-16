@@ -1,0 +1,154 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Patient Profile</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Patient</a>
+            </li>
+            <li class="breadcrumb-item active">Profile</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-lg-4 col-md-12">
+        <div class="card">
+          <div class="contact-grid profile-image">
+            <img src="assets/images/user/usrbig4.jpg" alt="">
+          </div>
+        </div>
+        <div class="card">
+          <div class="header">
+            <h2>About Patient</h2>
+          </div>
+          <div class="tab-pane body active" id="about">
+            <small class="text-muted" >First Name: </small>
+            <p >{{patient.first}}</p>
+            <hr>
+            <small class="text-muted">Phone: </small>
+            <p>{{patient.mobile}}</p>
+            <hr>
+            <small class="text-muted">Email: </small>
+            <p>{{patient.email}}</p>
+            <hr>
+            <small class="text-muted">Gender: </small>
+            <p>{{patient.gender}}</p>
+            <hr>
+            <small class="text-muted">Date of Birth: </small>
+            <p>{{patient.dob}}</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" aria-expanded="true">
+            <div class="row clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card project_widget">
+                  <div class="header">
+                    <h5>The Visit You Want to see!</h5>
+                  </div>
+                  <div class="body">
+                    <small class="text-muted" >Visit Name: </small>
+                    <p >{{visit1.name}}</p>
+                    <hr>
+                    <small class="text-muted" >Visit Date: </small>
+                    <p >{{visit1.date}}</p>
+                    <hr>
+                    <small class="text-muted" >Doctor Name: </small>
+                    <p >{{visit1.doctorName}}</p>
+                    <hr>
+                    <small class="text-muted" >Radiology result: </small>
+                    <p >{{visit1.radDiagnosis}}</p>
+                    <hr>
+                    <small class="text-muted" >Laboratory result: </small>
+                    <p >{{visit1.labDiagnosis}}</p>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="getRadState()">
+                <div class="card project_widget">
+                  <div class="header">
+                    <h5>Visit Radiology Test</h5>
+                  </div>
+                  <div class="body">
+                    <small class="text-muted" >Urgency: </small>
+                    <p >{{radiology1.urgency}}</p>
+                    <hr>
+                    <small class="text-muted" >Radiology Date: </small>
+                    <p >{{radiology1.date}}</p>
+                    <hr>
+                    <small class="text-muted" >Radiologist Name: </small>
+                    <p >{{radiology1.radiologistName}}</p>
+                    <hr>
+                    <small class="text-muted" >Test Type: </small>
+                    <p >{{radiology1.testtype}}</p>
+                    <hr>
+                    <small class="text-muted" >Other Info: </small>
+                    <p >{{radiology1.otherinfo}}</p>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="getLabState()">
+                <div class="card project_widget">
+                  <div class="header">
+                    <h5>Visit Laboratory Test</h5>
+                  </div>
+                  <div class="body">
+                    <small class="text-muted" >Urgency: </small>
+                    <p >{{laboratory1.urgency}}</p>
+                    <hr>
+                    <small class="text-muted" >Laboratory Date: </small>
+                    <p >{{laboratory1.date}}</p>
+                    <hr>
+                    <small class="text-muted" >Laboratorist Name: </small>
+                    <p >{{laboratory1.laboratoristName}}</p>
+                    <hr>
+                    <small class="text-muted" >Test Type: </small>
+                    <p >{{laboratory1.testtype}}</p>
+                    <hr>
+                    <small class="text-muted" >Other Info: </small>
+                    <p >{{laboratory1.otherinfo}}</p>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12" >
+                <div class="card project_widget">
+                  <div class="header">
+                    <h5>Generalized Info About The Disease</h5>
+                  </div>
+                  <div class="body">
+                    <small class="text-muted" >Disease: </small>
+                    <p >{{visit1.disease}}</p>
+                    <hr>
+                    <small class="text-muted" >Patients Disease Condition: </small>
+                    <p >{{visit1.conditions}}</p>
+                    <hr>
+                    <small class="text-muted" >General Prescription: </small>
+                    <p >{{visit1.prescription}}</p>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
