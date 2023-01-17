@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 };
 //export const apiUrl = 'https://ethiohealthsystems.herokuapp.com'
-export const apiUrl = 'https://goroclinic.herokuapp.com';
+export const apiUrl = 'https://serticlinic.herokuapp.com';
 
 /*
  * For easier debugging in development mode, you can import the following file
